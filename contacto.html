@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto - XyberTechX Technology</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/web.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<header class="nav">
+  <div class="nav-brand">
+    <img src="img/logo.png" alt="XyberTechX">
+    <h2>XyberTechX</h2>
+  </div>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="productos.html">Productos</a>
+    <a href="contacto.html" class="active">Contacto</a>
+  </nav>
+</header>
+
+<section class="page-hero hero-productos">
+  <div>
+    <span class="eyebrow">Contacto</span>
+    <h1>Hablemos de la solución que necesita tu equipo.</h1>
+    <p>
+      Más de 2 años brindando soporte, mantenimiento, ventas y soluciones tecnológicas en el mercado peruano.
+    </p>
+
+    <a class="btn" href="https://wa.me/51973518710?text=Hola,%20necesito%20ayuda%20con%20mi%20PC%20o%20laptop" target="_blank">
+      Atención rápida por WhatsApp
+    </a>
+  </div>
+
+  <div class="hero-img">
+    <img src="img/banner5.png" alt="Contacto XyberTechX">
+  </div>
+</section>
+
+<section class="section confianza">
+  <div class="confianza-grid">
+    <div class="confianza-card">
+      <h3>+2 años</h3>
+      <p>Atendiendo equipos y clientes en Perú.</p>
+    </div>
+
+    <div class="confianza-card">
+      <h3>Atención directa</h3>
+      <p>Hablas directamente con XyberTechX.</p>
+    </div>
+
+    <div class="confianza-card">
+      <h3>Trabajo transparente</h3>
+      <p>Primero diagnosticamos, luego ejecutamos.</p>
+    </div>
+
+    <div class="confianza-card">
+      <h3>Soluciones reales</h3>
+      <p>Soporte, ventas, mantenimiento y asesoría.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section contacto-grid">
+
+  <div class="contacto-info">
+    <h2>Canales de contacto</h2>
+
+    <p><i class="fa-solid fa-phone"></i> 973 518 710</p>
+    <p><i class="fa-solid fa-envelope"></i> xybertechxtechnology@gmail.com</p>
+    <p><i class="fa-brands fa-tiktok"></i> @xybertechx</p>
+    <p><i class="fa-brands fa-instagram"></i> @xybertechx</p>
+    <p><i class="fa-brands fa-facebook"></i> xybertechx</p>
+
+    <div class="contacto-note">
+      <h3>¿Qué puedes consultar?</h3>
+      <p>
+        Diagnóstico, mantenimiento, formateo, desbloqueo, compra de productos,
+        cotización de PC o acompañamiento a Wilson.
+      </p>
+    </div>
+
+    <div class="mini-info">
+      <p>✔ Atención directa</p>
+      <p>✔ Respuesta rápida</p>
+      <p>✔ Consulta sin compromiso</p>
+    </div>
+  </div>
+
+  <div class="contacto-form">
+    <h2>Enviar consulta</h2>
+    <p class="form-desc">
+      Completa tu consulta y se abrirá tu correo para enviarnos el mensaje.
+    </p>
+
+    <form id="formContacto">
+      <input id="nombreContacto" type="text" placeholder="Nombre" required>
+      <input id="correoContacto" type="email" placeholder="Tu correo electrónico" required>
+      <textarea id="mensajeContacto" placeholder="Describe tu problema o consulta..." required></textarea>
+
+      <button type="submit">Preparar correo</button>
+    </form>
+
+    <p id="mensajeForm" class="mensaje-form"></p>
+  </div>
+
+</section>
+
+<section class="cta">
+  <h2>¿Prefieres atención inmediata?</h2>
+  <p>Escríbenos por WhatsApp y te orientamos con el servicio correcto.</p>
+
+  <a class="btn" href="https://wa.me/51973518710?text=Hola,%20quiero%20atención%20rápida%20de%20XyberTechX" target="_blank">
+    Ir a WhatsApp
+  </a>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h3>XyberTechX Technology</h3>
+      <p>Tecnología que responde.</p>
+      <p>Soporte técnico, ventas y soluciones para equipos tecnológicos.</p>
+    </div>
+
+    <div>
+      <h4>Servicios</h4>
+      <p>Formateo</p>
+      <p>Mantenimiento</p>
+      <p>Desbloqueo</p>
+      <p>Protección antivirus</p>
+    </div>
+
+    <div>
+      <h4>Contacto</h4>
+      <p>📞 973 518 710</p>
+      <p>📧 xybertechxtechnology@gmail.com</p>
+      <p>📱 TikTok, Instagram y Facebook: xybertechx</p>
+    </div>
+  </div>
+
+  <div class="footer-copy">
+    © 2026 XyberTechX Technology. Todos los derechos reservados.
+  </div>
+</footer>
+
+<a href="https://wa.me/51973518710?text=Hola,%20quiero%20información%20sobre%20XyberTechX" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+const form = document.getElementById("formContacto");
+const mensaje = document.getElementById("mensajeForm");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const nombre = document.getElementById("nombreContacto").value.trim();
+  const correo = document.getElementById("correoContacto").value.trim();
+  const consulta = document.getElementById("mensajeContacto").value.trim();
+
+  const asunto = encodeURIComponent("Consulta desde la web de XyberTechX");
+  const cuerpo = encodeURIComponent(
+`Nombre: ${nombre}
+Correo: ${correo}
+
+Consulta:
+${consulta}`
+  );
+
+  window.location.href = `mailto:xybertechxtechnology@gmail.com?subject=${asunto}&body=${cuerpo}`;
+
+  mensaje.textContent = "Se abrirá tu aplicación de correo para enviar la consulta.";
+  mensaje.style.color = "#4ade80";
+
+  form.reset();
+});
+</script>
+
+</body>
+</html>
