@@ -2,13 +2,13 @@ import { db } from "../firebase.js";
 
 import {
   collection,
-  getDocs,
-  query,
-  where
+  getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-const CACHE_KEY = "xybertechx_productos_soporte";
+const CACHE_KEY = "xybertechx_productos_publicos_v2";
 const CACHE_TTL = 5 * 60 * 1000;
+const CATEGORIAS_OCULTAS = new Set(["servicio", "servicios"]);
+
 const IMAGENES_OPTIMIZADAS = {
   "img/Cables SATA 2 unidades.png": "img/productos/cable-sata-pack-2.webp",
   "img/cable ethernet 2M.png": "img/productos/cable-internet-2m.webp",
@@ -21,6 +21,21 @@ const IMAGENES_OPTIMIZADAS = {
   "img/Multímetro Profesional.png": "img/productos/multimetro-profesional.webp",
   "img/Set Organizador de Cables.png": "img/productos/set-organizador-cables.webp",
   "img/spy x family.png": "img/productos/spy-x-family.webp"
+};
+
+const IMAGENES_POR_NOMBRE = {
+  "base de laptop de aluminio negro": "img/productos/base-laptop-aluminio.webp",
+  "cable ethernet 2m": "img/productos/cable-internet-2m.webp",
+  "cables de internet 2m": "img/productos/cable-internet-2m.webp",
+  "cable ethernet cat5e 2m": "img/productos/cable-ethernet-cat5e-2m.webp",
+  "cable hdmi 1.5m": "img/productos/cable-hdmi-15m.webp",
+  "cable jack a tipo c 1.5m": "img/productos/cable-jack-tipo-c-15m.webp",
+  "cable sata packs de 2 unidades": "img/productos/cable-sata-pack-2.webp",
+  "cable usb 2.0 para impresora 1.4 m": "img/productos/cable-usb-impresora-14m.webp",
+  "figura de coleccion spyxfamily bobble hero": "img/productos/spy-x-family.webp",
+  "mando tarvos vsg xbox": "img/productos/mando-tarvos.webp",
+  "multimetro profesional": "img/productos/multimetro-profesional.webp",
+  "set organizador de cables de 36 piezas": "img/productos/set-organizador-cables.webp"
 };
 
 const productosContainer = document.getElementById("productosContainer");
@@ -43,17 +58,14 @@ async function cargarProductos() {
   }
 
   try {
-    const productosQuery = query(
-      collection(db, "inventario"),
-      where("categoria", "in", ["soporte", "Soporte"])
-    );
-    const productosSnap = await getDocs(productosQuery);
+    const productosSnap = await getDocs(collection(db, "inventario"));
 
     productos = productosSnap.docs
       .map((docu) => ({
         id: docu.id,
         ...docu.data()
       }))
+      .filter(esProductoPublico)
       .sort((a, b) => {
         const stockA = Number(a.stock || 0);
         const stockB = Number(b.stock || 0);
@@ -90,6 +102,14 @@ function guardarCache(lista) {
   } catch {
     // El catálogo sigue funcionando aunque el navegador bloquee sessionStorage.
   }
+}
+
+function esProductoPublico(producto) {
+  const nombre = normalizar(producto.nombre);
+  const categoria = normalizar(producto.categoria);
+
+  if (!nombre) return false;
+  return !CATEGORIAS_OCULTAS.has(categoria);
 }
 
 function aplicarFiltros() {
@@ -160,7 +180,7 @@ function mostrarProductos(lista) {
 
 function crearTarjetaProducto(producto, index) {
   const nombre = producto.nombre || "Producto";
-  const categoria = producto.categoria || "Soporte";
+  const categoria = producto.categoria || "Producto";
   const precio = Number(producto.precio || 0).toFixed(2);
   const stock = Number(producto.stock || 0);
   const mensaje = encodeURIComponent(
@@ -199,7 +219,10 @@ function crearTarjetaProducto(producto, index) {
 }
 
 function crearMediaProducto(imagenUrl, nombre, index) {
-  const imagenOptimizada = IMAGENES_OPTIMIZADAS[imagenUrl] || imagenUrl;
+  const imagenOptimizada =
+    IMAGENES_OPTIMIZADAS[imagenUrl] ||
+    IMAGENES_POR_NOMBRE[normalizar(nombre)] ||
+    imagenUrl;
 
   if (imagenOptimizada) {
     const imagen = document.createElement("img");
