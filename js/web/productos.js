@@ -18,7 +18,6 @@ async function cargarProductos() {
 
     productosSnap.forEach((docu) => {
       const producto = docu.data();
-
       const categoria = String(producto.categoria || "").trim().toLowerCase();
 
       if (categoria === "soporte") {
@@ -30,30 +29,35 @@ async function cargarProductos() {
     });
 
     mostrarProductos(productos);
-
   } catch (error) {
     console.error("Error cargando productos:", error);
-    productosContainer.innerHTML = `
-      <p class="empty-message">Error al cargar productos.</p>
-    `;
+    mostrarMensaje("Error al cargar productos.");
   }
 }
 
+function mostrarMensaje(texto) {
+  productosContainer.textContent = "";
+
+  const mensaje = document.createElement("p");
+  mensaje.classList.add("empty-message");
+  mensaje.textContent = texto;
+
+  productosContainer.appendChild(mensaje);
+}
+
 function mostrarProductos(lista) {
-  productosContainer.innerHTML = "";
+  productosContainer.textContent = "";
 
   if (lista.length === 0) {
-    productosContainer.innerHTML = `
-      <p class="empty-message">No hay productos disponibles.</p>
-    `;
+    mostrarMensaje("No hay productos disponibles.");
     return;
   }
 
   lista.forEach((producto) => {
     const nombre = producto.nombre || "Producto";
+    const categoria = producto.categoria || "Soporte";
     const precio = Number(producto.precio || 0).toFixed(2);
     const stock = Number(producto.stock || 0);
-
     const mensaje = encodeURIComponent(
       `Hola, quiero información sobre el producto: ${nombre}`
     );
@@ -61,26 +65,37 @@ function mostrarProductos(lista) {
     const card = document.createElement("article");
     card.classList.add("product-public-card");
 
-    card.innerHTML = `
-      <div class="product-public-icon">
-        <i class="fa-solid fa-box"></i>
-      </div>
+    const icono = document.createElement("div");
+    icono.classList.add("product-public-icon");
 
-      <div>
-        <h3>${nombre}</h3>
-        <p>Categoría: ${producto.categoria || "Soporte"}</p>
-        <span class="${stock > 0 ? "stock-ok" : "stock-out"}">
-          ${stock > 0 ? `Disponible: ${stock}` : "Sin stock"}
-        </span>
-      </div>
+    const iconoCaja = document.createElement("i");
+    iconoCaja.classList.add("fa-solid", "fa-box");
+    icono.appendChild(iconoCaja);
 
-      <strong>S/${precio}</strong>
+    const contenido = document.createElement("div");
 
-      <a href="https://wa.me/51973518710?text=${mensaje}" target="_blank">
-        Consultar
-      </a>
-    `;
+    const titulo = document.createElement("h3");
+    titulo.textContent = nombre;
 
+    const descripcion = document.createElement("p");
+    descripcion.textContent = `Categoría: ${categoria}`;
+
+    const stockLabel = document.createElement("span");
+    stockLabel.classList.add(stock > 0 ? "stock-ok" : "stock-out");
+    stockLabel.textContent = stock > 0 ? `Disponible: ${stock}` : "Sin stock";
+
+    contenido.append(titulo, descripcion, stockLabel);
+
+    const precioLabel = document.createElement("strong");
+    precioLabel.textContent = `S/${precio}`;
+
+    const enlace = document.createElement("a");
+    enlace.href = `https://wa.me/51973518710?text=${mensaje}`;
+    enlace.target = "_blank";
+    enlace.rel = "noopener";
+    enlace.textContent = "Consultar";
+
+    card.append(icono, contenido, precioLabel, enlace);
     productosContainer.appendChild(card);
   });
 }
