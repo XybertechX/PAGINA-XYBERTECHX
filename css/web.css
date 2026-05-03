@@ -507,6 +507,15 @@ body {
   font-size: 20px;
 }
 
+.product-public-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  border-radius: 16px;
+  background: #ffffff;
+  padding: 12px;
+}
+
 .product-public-card h3 {
   margin: 0 0 8px;
   font-size: 22px;

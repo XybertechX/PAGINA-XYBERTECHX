@@ -65,12 +65,7 @@ function mostrarProductos(lista) {
     const card = document.createElement("article");
     card.classList.add("product-public-card");
 
-    const icono = document.createElement("div");
-    icono.classList.add("product-public-icon");
-
-    const iconoCaja = document.createElement("i");
-    iconoCaja.classList.add("fa-solid", "fa-box");
-    icono.appendChild(iconoCaja);
+    const media = crearMediaProducto(producto.imagenUrl, nombre);
 
     const contenido = document.createElement("div");
 
@@ -95,9 +90,29 @@ function mostrarProductos(lista) {
     enlace.rel = "noopener";
     enlace.textContent = "Consultar";
 
-    card.append(icono, contenido, precioLabel, enlace);
+    card.append(media, contenido, precioLabel, enlace);
     productosContainer.appendChild(card);
   });
+}
+
+function crearMediaProducto(imagenUrl, nombre) {
+  if (imagenUrl) {
+    const imagen = document.createElement("img");
+    imagen.classList.add("product-public-image");
+    imagen.src = imagenUrl;
+    imagen.alt = nombre;
+    imagen.loading = "lazy";
+    return imagen;
+  }
+
+  const icono = document.createElement("div");
+  icono.classList.add("product-public-icon");
+
+  const iconoCaja = document.createElement("i");
+  iconoCaja.classList.add("fa-solid", "fa-box");
+  icono.appendChild(iconoCaja);
+
+  return icono;
 }
 
 buscarProductoPublico.addEventListener("input", () => {
