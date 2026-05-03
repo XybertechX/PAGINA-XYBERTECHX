@@ -338,7 +338,7 @@ body {
   gap: 14px;
 }
 
-.values-list div {
+.values-list > div {
   display: grid;
   grid-template-columns: 44px 1fr;
   gap: 14px;
@@ -508,7 +508,10 @@ body {
 /* ===== PAGE HERO (SERVICIOS) ===== */
 .page-hero {
   padding: 80px 10%;
-  background: linear-gradient(135deg, #0b0f1a, #1a1440);
+  background:
+    radial-gradient(circle at 84% 18%, rgba(88, 119, 255, 0.32), transparent 34%),
+    radial-gradient(circle at 8% 78%, rgba(0, 184, 148, 0.18), transparent 26%),
+    linear-gradient(135deg, #111827 0%, #172554 48%, #243b80 100%);
 }
 
 .page-hero h1 {
@@ -637,9 +640,14 @@ body {
   border-radius: 15px;
 }
 
-.section-light .steps div {
-  background: #ffffff;
-  border: 1px solid rgba(49,92,255,0.12);
+.section-light .steps > div {
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035));
+  border: 1px solid rgba(124,245,206,0.16);
+  color: #ffffff;
+}
+
+.section-light .steps > div p {
+  color: #c7d7f5;
 }
 
 .steps span {

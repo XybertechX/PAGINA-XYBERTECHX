@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -108,40 +108,12 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="section-heading">
-    <span class="eyebrow">Elige el canal</span>
-    <h2>Formas de contactarnos.</h2>
-  </div>
-
-  <div class="contact-options">
-    <div class="contact-card">
-      <h3>WhatsApp</h3>
-      <p>Ideal para diagnóstico rápido, cotizaciones y disponibilidad de productos.</p>
-      <a href="https://wa.me/51973518710" target="_blank" rel="noopener">Escribir ahora</a>
-    </div>
-
-    <div class="contact-card">
-      <h3>Correo</h3>
-      <p>Útil si quieres enviar una explicación más larga o datos de tu equipo.</p>
-      <a href="mailto:xybertechxtechnology@gmail.com">Enviar correo</a>
-    </div>
-
-    <div class="contact-card">
-      <h3>Redes</h3>
-      <p>También puedes encontrarnos como XyberTechX en TikTok, Instagram y Facebook.</p>
-      <a href="https://www.tiktok.com/@xybertechx" target="_blank" rel="noopener">Ver TikTok</a>
-    </div>
-  </div>
-</section>
-
 <section class="section contacto-grid">
 
   <div class="contacto-info">
     <h2>Canales de contacto</h2>
 
     <p><i class="fa-solid fa-phone"></i> 973 518 710</p>
-    <p><i class="fa-solid fa-envelope"></i> xybertechxtechnology@gmail.com</p>
     <p><i class="fa-brands fa-tiktok"></i> @xybertechx</p>
     <p><i class="fa-brands fa-instagram"></i> @xybertechx</p>
     <p><i class="fa-brands fa-facebook"></i> xybertechx</p>
@@ -155,27 +127,26 @@
     </div>
 
     <div class="mini-info">
-      <p>✔ Atención directa</p>
-      <p>✔ Respuesta rápida</p>
-      <p>✔ Consulta sin compromiso</p>
+      <p>Atención directa por WhatsApp</p>
+      <p>Respuesta rápida según disponibilidad</p>
+      <p>Consulta sin compromiso</p>
     </div>
   </div>
 
-  <div class="contacto-form">
-    <h2>Enviar consulta</h2>
+  <div class="contacto-form whatsapp-panel">
+    <h2>Escríbenos por WhatsApp</h2>
     <p class="form-desc">
-      Completa tu consulta y se abrirá tu correo para enviarnos el mensaje.
+      Para atenderte mejor, envíanos una foto o video del problema, el modelo de tu equipo y qué necesitas resolver.
     </p>
 
-    <form id="formContacto">
-      <input id="nombreContacto" type="text" placeholder="Nombre" required>
-      <input id="correoContacto" type="email" placeholder="Tu correo electrónico" required>
-      <textarea id="mensajeContacto" placeholder="Describe tu problema o consulta..." required></textarea>
+    <div class="contacto-note">
+      <h3>Mensaje recomendado</h3>
+      <p>Hola, soy ___ . Tengo un problema con mi PC/laptop: ___ . Mi equipo es ___ . ¿Me pueden orientar?</p>
+    </div>
 
-      <button type="submit">Preparar correo</button>
-    </form>
-
-    <p id="mensajeForm" class="mensaje-form"></p>
+    <a class="btn" href="https://wa.me/51973518710?text=Hola,%20necesito%20ayuda%20con%20mi%20PC%20o%20laptop" target="_blank" rel="noopener">
+      Abrir WhatsApp
+    </a>
   </div>
 
 </section>
@@ -184,7 +155,7 @@
   <h2>¿Prefieres atención inmediata?</h2>
   <p>Escríbenos por WhatsApp y te orientamos con el servicio correcto.</p>
 
-  <a class="btn" href="https://wa.me/51973518710?text=Hola,%20quiero%20atención%20rápida%20de%20XyberTechX" target="_blank" rel="noopener">
+  <a class="btn" href="https://wa.me/51973518710?text=Hola,%20quiero%20atencion%20rapida%20de%20XyberTechX" target="_blank" rel="noopener">
     Ir a WhatsApp
   </a>
 </section>
@@ -207,9 +178,9 @@
 
     <div>
       <h4>Contacto</h4>
-      <p>📞 973 518 710</p>
-      <p>📧 xybertechxtechnology@gmail.com</p>
-      <p>📱 TikTok, Instagram y Facebook: xybertechx</p>
+      <p>WhatsApp: 973 518 710</p>
+      <p>TikTok, Instagram y Facebook: xybertechx</p>
+      <p>Atención directa para soporte y productos.</p>
     </div>
   </div>
 
@@ -218,38 +189,9 @@
   </div>
 </footer>
 
-<a href="https://wa.me/51973518710?text=Hola,%20quiero%20información%20sobre%20XyberTechX" class="whatsapp-float" target="_blank" rel="noopener">
+<a href="https://wa.me/51973518710?text=Hola,%20quiero%20informacion%20sobre%20XyberTechX" class="whatsapp-float" target="_blank" rel="noopener">
   <i class="fab fa-whatsapp"></i>
 </a>
-
-<script>
-const form = document.getElementById("formContacto");
-const mensaje = document.getElementById("mensajeForm");
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const nombre = document.getElementById("nombreContacto").value.trim();
-  const correo = document.getElementById("correoContacto").value.trim();
-  const consulta = document.getElementById("mensajeContacto").value.trim();
-
-  const asunto = encodeURIComponent("Consulta desde la web de XyberTechX");
-  const cuerpo = encodeURIComponent(
-`Nombre: ${nombre}
-Correo: ${correo}
-
-Consulta:
-${consulta}`
-  );
-
-  window.location.href = `mailto:xybertechxtechnology@gmail.com?subject=${asunto}&body=${cuerpo}`;
-
-  mensaje.textContent = "Se abrirá tu aplicación de correo para enviar la consulta.";
-  mensaje.style.color = "#4ade80";
-
-  form.reset();
-});
-</script>
 
 </body>
 </html>
