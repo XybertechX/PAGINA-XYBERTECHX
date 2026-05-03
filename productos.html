@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <title>Productos - XyberTechX Technology</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="description" content="Catálogo de productos tecnológicos disponibles en XyberTechX: accesorios, cables, mandos y soluciones para PC o laptop.">
+  <link rel="preconnect" href="https://www.gstatic.com">
+  <link rel="preconnect" href="https://firestore.googleapis.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="css/web.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -25,34 +28,48 @@
   </nav>
 </header>
 
-<!-- HERO -->
 <section class="page-hero hero-productos">
   <div>
-    <span class="eyebrow">Catálogo</span>
+    <span class="eyebrow">Catálogo visual</span>
     <h1>Productos disponibles</h1>
     <p>
-      Equipos y accesorios listos para entrega. Consulta disponibilidad en tiempo real.
+      Busca por nombre, tipo de cable, accesorio o disponibilidad. Las imágenes te ayudan a reconocer rápido lo que necesitas.
     </p>
   </div>
 
   <div class="hero-img">
-    <img src="img/banner4.png" alt="Productos XyberTechX">
+    <img src="img/optimized/banner4-productos.webp" alt="Productos XyberTechX" fetchpriority="high">
   </div>
 </section>
 
-<!-- PRODUCTOS DINÁMICOS -->
-<section class="section">
-  <h2>Productos en venta</h2>
-  <div class="product-search-box">
-  <input type="text" id="buscarProductoPublico" placeholder="Buscar producto...">
-</div>
+<section class="section products-section">
+  <div class="section-heading">
+    <span class="eyebrow">Stock actualizado</span>
+    <h2>Productos en venta</h2>
+  </div>
 
-  <div id="productosContainer" class="products-grid">
-    <p>Cargando productos...</p>
+  <div class="product-toolbar">
+    <div class="product-search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="search" id="buscarProductoPublico" placeholder="Buscar: HDMI, mando, base, cable..." autocomplete="off">
+    </div>
+
+    <div class="product-filter-group" aria-label="Filtros de disponibilidad">
+      <button class="filter-chip active" type="button" data-filter="todos">Todos</button>
+      <button class="filter-chip" type="button" data-filter="disponibles">Disponibles</button>
+      <button class="filter-chip" type="button" data-filter="sin-stock">Sin stock</button>
+    </div>
+  </div>
+
+  <p id="productosResumen" class="products-summary">Cargando productos...</p>
+
+  <div id="productosContainer" class="products-grid" aria-live="polite">
+    <article class="product-skeleton"></article>
+    <article class="product-skeleton"></article>
+    <article class="product-skeleton"></article>
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta">
   <h2>¿Te interesa algún producto?</h2>
   <p>Escríbenos por WhatsApp y te damos detalles inmediatos.</p>
@@ -80,9 +97,9 @@
 
     <div>
       <h4>Contacto</h4>
-      <p>📞 973 518 710</p>
-      <p>📧 xybertechxtechnology@gmail.com</p>
-      <p>📱 TikTok, Instagram y Facebook: xybertechx</p>
+      <p>Teléfono: 973 518 710</p>
+      <p>Correo: xybertechxtechnology@gmail.com</p>
+      <p>Redes: TikTok, Instagram y Facebook: xybertechx</p>
     </div>
   </div>
 
@@ -91,8 +108,7 @@
   </div>
 </footer>
 
-<!-- BOTÓN WHATSAPP -->
-<a href="https://wa.me/51973518710" class="whatsapp-float" target="_blank" rel="noopener">
+<a href="https://wa.me/51973518710" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
 
