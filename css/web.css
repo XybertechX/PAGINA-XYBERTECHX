@@ -637,12 +637,12 @@ body {
 
 .logo-slide {
   width: 260px;
-  min-height: 270px;
+  min-height: 260px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
   padding: 22px;
   border-radius: 18px;
   background: #10182e;
@@ -651,11 +651,10 @@ body {
 
 .logo-slide img {
   width: 100%;
-  height: 180px;
+  height: 190px;
   object-fit: contain;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.96);
-  padding: 10px;
+  border-radius: 12px;
+  display: block;
 }
 
 .logo-slide h3 {
