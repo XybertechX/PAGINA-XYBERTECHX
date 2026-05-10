@@ -603,6 +603,69 @@ body {
   background: rgba(124, 58, 237, 0.1);
 }
 
+.logo-showcase {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(0, 184, 148, 0.12), transparent 28%),
+    #0f172a;
+}
+
+.logo-carousel {
+  overflow: hidden;
+  border: 1px solid rgba(124,245,206,0.14);
+  border-radius: 22px;
+  background: rgba(255,255,255,0.035);
+}
+
+.logo-track {
+  display: flex;
+  gap: 22px;
+  width: max-content;
+  padding: 22px;
+  animation: logo-scroll 18s linear infinite;
+}
+
+.logo-carousel:hover .logo-track {
+  animation-play-state: paused;
+}
+
+.logo-slide {
+  width: 260px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 22px;
+  border-radius: 18px;
+  background: #10182e;
+  border: 1px solid rgba(88,119,255,0.18);
+}
+
+.logo-slide img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+}
+
+.logo-slide h3 {
+  margin: 0;
+  color: #dbeafe;
+  text-align: center;
+  font-size: 18px;
+}
+
+@keyframes logo-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 11px));
+  }
+}
+
 /* ===== SPLIT SECTION ===== */
 .split-section {
   display: grid;
@@ -1075,6 +1138,20 @@ body {
 
   .filter-chip {
     width: 100%;
+  }
+
+  .logo-track {
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .logo-slide {
+    width: 210px;
+    min-height: 220px;
+  }
+
+  .logo-slide img {
+    height: 130px;
   }
 
   .cta {
