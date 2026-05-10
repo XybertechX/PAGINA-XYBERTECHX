@@ -100,11 +100,17 @@ body {
 
 .hero-img img {
   width: 100%;
+  display: block;
   max-height: 420px;
+  height: auto;
   object-fit: contain;
   border-radius: 34px;
   border: 1px solid rgba(255,255,255,0.14);
   box-shadow: 0 30px 80px rgba(0,0,0,0.32);
+}
+
+.home-hero .hero-img img {
+  max-height: none;
 }
 
 .home-hero .eyebrow {
@@ -622,7 +628,7 @@ body {
   gap: 22px;
   width: max-content;
   padding: 22px;
-  animation: logo-scroll 18s linear infinite;
+  animation: logo-scroll 42s linear infinite;
 }
 
 .logo-carousel:hover .logo-track {
@@ -631,7 +637,7 @@ body {
 
 .logo-slide {
   width: 260px;
-  min-height: 250px;
+  min-height: 270px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -645,8 +651,11 @@ body {
 
 .logo-slide img {
   width: 100%;
-  height: 160px;
+  height: 180px;
   object-fit: contain;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.96);
+  padding: 10px;
 }
 
 .logo-slide h3 {
@@ -739,7 +748,8 @@ body {
 
 .services-hero-img img {
   width: 100%;
-  max-height: 360px;
+  max-height: none;
+  height: auto;
   object-fit: contain;
   border-radius: 28px;
   filter: drop-shadow(0 24px 60px rgba(166,77,255,0.28));
