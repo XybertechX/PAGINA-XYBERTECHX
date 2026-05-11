@@ -562,6 +562,10 @@ body {
   gap: 10px;
 }
 
+.service-card[hidden] {
+  display: none;
+}
+
 .service-card:hover {
   transform: translateY(-5px);
   border-color: #7c3aed;
