@@ -305,6 +305,10 @@ body {
   font-size: 24px;
 }
 
+.featured-products .product-skeleton {
+  min-height: 180px;
+}
+
 .center-action {
   text-align: center;
   margin-top: 28px;

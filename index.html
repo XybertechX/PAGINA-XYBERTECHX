@@ -5,6 +5,8 @@
   <title>XyberTechX Technology</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Soporte técnico, mantenimiento, formateo, venta de accesorios y soluciones tecnológicas para PC y laptop.">
+  <link rel="preconnect" href="https://www.gstatic.com">
+  <link rel="preconnect" href="https://firestore.googleapis.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://res.cloudinary.com">
   <link rel="stylesheet" href="css/web.css">
@@ -104,33 +106,10 @@
     <h2>Productos destacados listos para consultar.</h2>
   </div>
 
-  <div class="featured-products">
-    <article>
-      <img src="https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464913/xybertechx/productos/mando-tarvos.webp" alt="Mando Tarvos VSG XBOX" loading="lazy">
-      <div>
-        <h3>Mando Tarvos VSG XBOX</h3>
-        <p>Mando tipo XBOX para PC o laptop.</p>
-        <strong>S/180</strong>
-      </div>
-    </article>
-
-    <article>
-      <img src="https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464908/xybertechx/productos/cable-hdmi-1-5m.webp" alt="Cable HDMI 1.5M" loading="lazy">
-      <div>
-        <h3>Cable HDMI 1.5M</h3>
-        <p>Conecta laptop, PC, monitor o TV.</p>
-        <strong>S/35</strong>
-      </div>
-    </article>
-
-    <article>
-      <img src="https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464781/xybertechx/productos/base-de-laptop-de-aluminio-negro.webp" alt="Base de laptop de aluminio" loading="lazy">
-      <div>
-        <h3>Base de Laptop</h3>
-        <p>Soporte de aluminio para mejorar postura y ventilación.</p>
-        <strong>S/45</strong>
-      </div>
-    </article>
+  <div id="productosDestacadosInicio" class="featured-products" aria-live="polite">
+    <article class="product-skeleton"></article>
+    <article class="product-skeleton"></article>
+    <article class="product-skeleton"></article>
   </div>
 
   <div class="center-action">
@@ -230,6 +209,8 @@
    aria-label="Contactar por WhatsApp">
    <i class="fab fa-whatsapp"></i>
 </a>
+
+<script type="module" src="js/web/inicio.js?v=20260511"></script>
 
 </body>
 </html>
