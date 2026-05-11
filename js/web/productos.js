@@ -9,33 +9,33 @@ const CACHE_KEY = "xybertechx_productos_publicos_v2";
 const CACHE_TTL = 5 * 60 * 1000;
 const CATEGORIAS_OCULTAS = new Set(["servicio", "servicios"]);
 
-const IMAGENES_OPTIMIZADAS = {
-  "img/Cables SATA 2 unidades.png": "img/productos/cable-sata-pack-2.webp",
-  "img/cable ethernet 2M.png": "img/productos/cable-internet-2m.webp",
-  "img/Cable HDMI 1.5M.png": "img/productos/cable-hdmi-15m.webp",
-  "img/Mando Tarvos.png": "img/productos/mando-tarvos.webp",
-  "img/Base de Laptop De Aluminio Negro.png": "img/productos/base-laptop-aluminio.webp",
-  "img/Cable Ethernet Cat5e 2M.png": "img/productos/cable-ethernet-cat5e-2m.webp",
-  "img/Cable Jack a tipo C 1.5M.png": "img/productos/cable-jack-tipo-c-15m.webp",
-  "img/Cable USB 2.0 Para Impresora 1.4 M.png": "img/productos/cable-usb-impresora-14m.webp",
-  "img/Multímetro Profesional.png": "img/productos/multimetro-profesional.webp",
-  "img/Set Organizador de Cables.png": "img/productos/set-organizador-cables.webp",
-  "img/spy x family.png": "img/productos/spy-x-family.webp"
+const IMAGENES_LEGADAS_POR_ARCHIVO = {
+  "cables sata 2 unidades": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464911/xybertechx/productos/cables-sata-2-unidades.webp",
+  "cable ethernet 2m": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464906/xybertechx/productos/cable-ethernet-2m.webp",
+  "cable hdmi 1.5m": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464908/xybertechx/productos/cable-hdmi-1-5m.webp",
+  "mando tarvos": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464913/xybertechx/productos/mando-tarvos.webp",
+  "base de laptop de aluminio negro": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464781/xybertechx/productos/base-de-laptop-de-aluminio-negro.webp",
+  "cable ethernet cat5e 2m": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464907/xybertechx/productos/cable-ethernet-cat5e-2m.webp",
+  "cable jack a tipo c 1.5m": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464909/xybertechx/productos/cable-jack-a-tipo-c-1-5m.webp",
+  "cable usb 2.0 para impresora 1.4 m": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464910/xybertechx/productos/cable-usb-2-0-para-impresora-1-4-m.webp",
+  "multimetro profesional": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464914/xybertechx/productos/multimetro-profesional.webp",
+  "set organizador de cables": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464915/xybertechx/productos/set-organizador-de-cables.webp",
+  "spy x family": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464916/xybertechx/productos/spy-x-family.webp"
 };
 
 const IMAGENES_POR_NOMBRE = {
-  "base de laptop de aluminio negro": "img/productos/base-laptop-aluminio.webp",
-  "cable ethernet 2m": "img/productos/cable-internet-2m.webp",
-  "cables de internet 2m": "img/productos/cable-internet-2m.webp",
-  "cable ethernet cat5e 2m": "img/productos/cable-ethernet-cat5e-2m.webp",
-  "cable hdmi 1.5m": "img/productos/cable-hdmi-15m.webp",
-  "cable jack a tipo c 1.5m": "img/productos/cable-jack-tipo-c-15m.webp",
-  "cable sata packs de 2 unidades": "img/productos/cable-sata-pack-2.webp",
-  "cable usb 2.0 para impresora 1.4 m": "img/productos/cable-usb-impresora-14m.webp",
-  "figura de coleccion spyxfamily bobble hero": "img/productos/spy-x-family.webp",
-  "mando tarvos vsg xbox": "img/productos/mando-tarvos.webp",
-  "multimetro profesional": "img/productos/multimetro-profesional.webp",
-  "set organizador de cables de 36 piezas": "img/productos/set-organizador-cables.webp"
+  "base de laptop de aluminio negro": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464781/xybertechx/productos/base-de-laptop-de-aluminio-negro.webp",
+  "cable ethernet 2m": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464906/xybertechx/productos/cable-ethernet-2m.webp",
+  "cables de internet 2m": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464906/xybertechx/productos/cable-ethernet-2m.webp",
+  "cable ethernet cat5e 2m": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464907/xybertechx/productos/cable-ethernet-cat5e-2m.webp",
+  "cable hdmi 1.5m": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464908/xybertechx/productos/cable-hdmi-1-5m.webp",
+  "cable jack a tipo c 1.5m": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464909/xybertechx/productos/cable-jack-a-tipo-c-1-5m.webp",
+  "cable sata packs de 2 unidades": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464911/xybertechx/productos/cables-sata-2-unidades.webp",
+  "cable usb 2.0 para impresora 1.4 m": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464910/xybertechx/productos/cable-usb-2-0-para-impresora-1-4-m.webp",
+  "figura de coleccion spyxfamily bobble hero": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464916/xybertechx/productos/spy-x-family.webp",
+  "mando tarvos vsg xbox": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464913/xybertechx/productos/mando-tarvos.webp",
+  "multimetro profesional": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464914/xybertechx/productos/multimetro-profesional.webp",
+  "set organizador de cables de 36 piezas": "https://res.cloudinary.com/dm64fu9ih/image/upload/v1778464915/xybertechx/productos/set-organizador-de-cables.webp"
 };
 
 const productosContainer = document.getElementById("productosContainer");
@@ -219,10 +219,7 @@ function crearTarjetaProducto(producto, index) {
 }
 
 function crearMediaProducto(imagenUrl, nombre, index) {
-  const imagenOptimizada =
-    IMAGENES_OPTIMIZADAS[imagenUrl] ||
-    IMAGENES_POR_NOMBRE[normalizar(nombre)] ||
-    imagenUrl;
+  const imagenOptimizada = resolverImagenProducto(imagenUrl, nombre);
 
   if (imagenOptimizada) {
     const imagen = document.createElement("img");
@@ -242,6 +239,23 @@ function crearMediaProducto(imagenUrl, nombre, index) {
   icono.appendChild(iconoCaja);
 
   return icono;
+}
+
+function resolverImagenProducto(imagenUrl, nombre) {
+  if (imagenUrl && String(imagenUrl).startsWith("https://")) {
+    return imagenUrl;
+  }
+
+  const archivo = String(imagenUrl || "")
+    .split("/")
+    .pop()
+    .replace(/\.[a-z0-9]+$/i, "");
+
+  return (
+    IMAGENES_LEGADAS_POR_ARCHIVO[normalizar(archivo)] ||
+    IMAGENES_POR_NOMBRE[normalizar(nombre)] ||
+    imagenUrl
+  );
 }
 
 buscarProductoPublico.addEventListener("input", () => {
